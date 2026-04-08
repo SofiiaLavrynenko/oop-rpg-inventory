@@ -43,26 +43,25 @@ public class Inventory<T>: IEnumerable<T>
         Capacity += item.Weight;
     }
 
-    public void GetByName(string title)
+    public Item? GetByName(string title)
     {
         var toSearch = title.ToLower();
 
         if (String.IsNullOrWhiteSpace(title))
         {
             System.Console.WriteLine("Title is needed.");
-            return;
+            return null;
         }
 
-        var result = _items.Where(i => i.Title != null && i.Title == toSearch).ToList();
+        var result = _items.FirstOrDefault(i => i.Title != null && i.Title == toSearch);
 
-        if (result.Count() == 0)
+        if (result == null)
         {
             System.Console.WriteLine($"No title that contains {title}.");
-            return;
+            return null;
         }
 
-        foreach(var item in result)
-            System.Console.WriteLine(item);
+        return result;
     }
 
     public void SortByRarity()
@@ -73,6 +72,11 @@ public class Inventory<T>: IEnumerable<T>
     public int Count()
     {
         return _items.Count();
+    }
+
+    public bool Contains(T item)
+    {
+        return _items.Any(i => i.Title == item.Title);
     }
 
     public IEnumerator<T> GetEnumerator()

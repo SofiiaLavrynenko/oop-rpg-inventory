@@ -55,4 +55,21 @@ public class Hero
         System.Console.WriteLine($"HP: {Health} | ATK: {Attack} | DEF: {Defence}");
         System.Console.WriteLine($"Inventory capacity: {_inventory.Capacity}");
     }
+
+    public void UseItem()
+    {
+        System.Console.WriteLine("What element do you want to use?");
+                        
+        var toUse = Console.ReadLine();
+
+        Item? item = _inventory.GetByName(toUse);
+
+        if (!_inventory.Contains(item))
+        {
+            System.Console.WriteLine($"No {item.Title} in {Name}'s inventory.");
+            return;
+        }
+
+        item.Use(this);
+    }
 }

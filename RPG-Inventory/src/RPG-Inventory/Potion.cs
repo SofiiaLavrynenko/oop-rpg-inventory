@@ -9,7 +9,8 @@ public class Potion: Item
 
     public override void Use(Hero hero)
     {
-        hero.Health += Bonus;
+        hero.Health = Math.Min(hero.Health + Bonus, hero.Health);
+        hero.RemoveFromInventory(this);
     }
 
     public override string ToString()
