@@ -29,7 +29,7 @@ public abstract class Item: IComparable<Item>
         return res;
     }
 
-    public abstract void Use();
+    public abstract void Use(Hero hero);
 
     public override string ToString()
     {

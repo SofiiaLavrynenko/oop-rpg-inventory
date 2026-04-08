@@ -48,4 +48,11 @@ public class Hero
         foreach (var item in _inventory)
             System.Console.WriteLine(item);
     }
+
+    public void ShowStats()
+    {
+        System.Console.WriteLine($"Name: {Name}");
+        System.Console.WriteLine($"HP: {Health} | ATK: {Attack} | DEF: {Defence}");
+        System.Console.WriteLine($"Inventory capacity: {_inventory.Capacity}");
+    }
 }
