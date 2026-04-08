@@ -7,9 +7,9 @@ public class Potion: Item
     public Potion(string title, double weight)
         : base(title, weight) {}
 
-    public override void Use()
+    public override void Use(Hero hero)
     {
-        //
+        hero.Health += Bonus;
     }
 
     public override string ToString()

@@ -7,9 +7,9 @@ public class Weapon: Item
     public Weapon(string title, double weight)
         : base(title, weight) {}
 
-    public override void Use()
+    public override void Use(Hero hero)
     {
-        //
+        hero.Attack += Bonus;
     }
 
     public override string ToString()

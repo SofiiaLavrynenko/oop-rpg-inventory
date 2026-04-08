@@ -7,9 +7,9 @@ public class Armor: Item
     public Armor(string title, double weight)
         : base(title, weight) {}
 
-    public override void Use()
+    public override void Use(Hero hero)
     {
-        //
+        hero.Defence += Bonus;
     }
 
     public override string ToString()

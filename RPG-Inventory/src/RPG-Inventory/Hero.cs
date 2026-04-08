@@ -6,10 +6,10 @@ namespace RPG_Inventory;
 public class Hero
 {
     private Inventory<Item> _inventory;
-    public string Name {get; protected set;}
-    public double Health {get; protected set;}
-    public int Attack {get; protected set;}
-    public int Defence {get; protected set;}
+    public string Name {get; private set;}
+    public double Health {get; set;}
+    public int Attack {get; set;}
+    public int Defence {get; set;}
 
     public const double MaxHealth = 100;
     public const double DefaultInventoryCapacity = 15;
