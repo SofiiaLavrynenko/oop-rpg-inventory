@@ -70,6 +70,11 @@ public class Inventory<T>: IEnumerable<T>
         _items.Sort();
     }
 
+    public int Count()
+    {
+        return _items.Count();
+    }
+
     public IEnumerator<T> GetEnumerator()
     {
         foreach (var item in _items)
