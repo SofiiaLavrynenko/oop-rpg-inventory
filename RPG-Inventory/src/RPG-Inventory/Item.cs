@@ -1,9 +1,10 @@
 using System;
 using System.Runtime.InteropServices.Marshalling;
+using System.Runtime.Versioning;
 
 namespace RPG_Inventory;
 
-public abstract class Item
+public abstract class Item: IComparable<Item>
 {
     public string Title {get; protected set;}
     public double Weight {get; protected set;}
@@ -14,6 +15,16 @@ public abstract class Item
         Title = title;
         Weight = weight;
         Rarity = (Rarity)Random.Shared.Next(0, 4);
+    }
+
+    public int CompareTo(Item? item)
+    {
+        if (item == null)
+            return 1;
+        
+        var res = item.Rarity.CompareTo(Rarity);
+
+        return res;
     }
 
     public abstract void Use();
