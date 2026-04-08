@@ -25,4 +25,27 @@ public class Hero
     }
 
     public Hero(string name) : this(name, DefaultInventoryCapacity) {}
+
+    public void AddToInventory(Item item)
+    {
+        _inventory.Add(item);
+    }
+
+    public void RemoveFromInventory(Item item)
+    {
+        _inventory.Remove(item);
+    }
+
+    public void ShowInventory()
+    {
+        if (_inventory.Count() == 0)
+        {
+            System.Console.WriteLine($"{Name}'s inventory is empty.");
+            return;
+        }
+
+        System.Console.WriteLine($"{Name}'s inventory:");
+        foreach (var item in _inventory)
+            System.Console.WriteLine(item);
+    }
 }

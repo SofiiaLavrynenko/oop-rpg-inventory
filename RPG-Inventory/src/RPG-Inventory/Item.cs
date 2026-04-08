@@ -31,6 +31,6 @@ public abstract class Item: IComparable<Item>
 
     public override string ToString()
     {
-        return $"Title: {Title} | Weight: {Weight} | Rarity: {Rarity}";
+        return $"[{Rarity}] {Title} (weight: {Weight})";
     }
 }
