@@ -11,4 +11,9 @@ public class Potion: Item
     {
         //
     }
+
+    public override string ToString()
+    {
+        return $"[{Rarity}] {Title} (weight: {Weight}, HP: +{Bonus})";
+    }
 }

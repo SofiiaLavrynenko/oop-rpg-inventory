@@ -9,12 +9,14 @@ public abstract class Item: IComparable<Item>
     public string Title {get; protected set;}
     public double Weight {get; protected set;}
     public Rarity Rarity {get; protected set;}
+    public int Bonus {get; protected set;}
 
     public Item(string title, double weight)
     {
         Title = title;
         Weight = weight;
         Rarity = (Rarity)Random.Shared.Next(0, 4);
+        Bonus = Random.Shared.Next(10, 26);
     }
 
     public int CompareTo(Item? item)

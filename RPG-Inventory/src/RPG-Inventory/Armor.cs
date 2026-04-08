@@ -11,4 +11,9 @@ public class Armor: Item
     {
         //
     }
+
+    public override string ToString()
+    {
+        return $"[{Rarity}] {Title} (weight: {Weight}, DEF: +{Bonus})";
+    }
 }
