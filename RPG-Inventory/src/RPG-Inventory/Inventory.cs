@@ -65,6 +65,11 @@ public class Inventory<T>: IEnumerable<T>
             System.Console.WriteLine(item);
     }
 
+    public void SortByRarity()
+    {
+        _items.Sort();
+    }
+
     public IEnumerator<T> GetEnumerator()
     {
         foreach (var item in _items)
