@@ -11,6 +11,7 @@ public class Potion: Item
     {
         hero.Health = Math.Min(hero.Health + Bonus, hero.Health);
         hero.RemoveFromInventory(this);
+        System.Console.WriteLine($"HP: +{Bonus}");
     }
 
     public override string ToString()

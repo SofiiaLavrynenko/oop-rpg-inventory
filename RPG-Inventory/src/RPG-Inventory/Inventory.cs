@@ -53,7 +53,7 @@ public class Inventory<T>: IEnumerable<T>
             return null;
         }
 
-        var result = _items.FirstOrDefault(i => i.Title != null && i.Title == toSearch);
+        var result = _items.FirstOrDefault(i => i.Title.ToLower() != null && i.Title.ToLower().Contains(toSearch));
 
         if (result == null)
         {
@@ -61,6 +61,7 @@ public class Inventory<T>: IEnumerable<T>
             return null;
         }
 
+        System.Console.WriteLine($"{result.Title} is being used.");
         return result;
     }
 

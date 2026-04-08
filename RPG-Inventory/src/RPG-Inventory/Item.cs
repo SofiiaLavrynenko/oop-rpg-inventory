@@ -24,7 +24,7 @@ public abstract class Item: IComparable<Item>
         if (item == null)
             return 1;
         
-        var res = item.Rarity.CompareTo(Rarity);
+        var res = Rarity.CompareTo(item.Rarity);
 
         return res;
     }

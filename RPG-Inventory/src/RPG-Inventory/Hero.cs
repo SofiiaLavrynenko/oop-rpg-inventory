@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace RPG_Inventory;
 
@@ -58,11 +59,14 @@ public class Hero
 
     public void UseItem()
     {
-        System.Console.WriteLine("What element do you want to use?");
+        System.Console.WriteLine("What item do you want to use?");
                         
         var toUse = Console.ReadLine();
 
         Item? item = _inventory.GetByName(toUse);
+
+        if (item == null)
+            return;
 
         if (!_inventory.Contains(item))
         {
@@ -71,5 +75,11 @@ public class Hero
         }
 
         item.Use(this);
+    }
+
+    public void ShowSortedInventory()
+    {
+        _inventory.SortByRarity();
+        ShowInventory();
     }
 }

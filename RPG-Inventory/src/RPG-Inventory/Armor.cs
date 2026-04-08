@@ -10,6 +10,7 @@ public class Armor: Item
     public override void Use(Hero hero)
     {
         hero.Defence += Bonus;
+        System.Console.WriteLine($"DEF: +{Bonus}");
     }
 
     public override string ToString()

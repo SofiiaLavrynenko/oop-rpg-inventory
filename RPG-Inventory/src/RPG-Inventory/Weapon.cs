@@ -10,6 +10,7 @@ public class Weapon: Item
     public override void Use(Hero hero)
     {
         hero.Attack += Bonus;
+        System.Console.WriteLine($"ATK: +{Bonus}");
     }
 
     public override string ToString()
